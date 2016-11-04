@@ -1,0 +1,91 @@
+body { 
+	background-color: #333333;
+	color:#e8e8b5;
+}
+/*h1, h2, h3, h4       { color: #FFFFFF; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+p, dd, dt               { color: #CCCCCC;}
+*/
+
+.collection {
+	margin: 10px 0;
+}
+
+.collectionName {
+	margin: 0px;
+}
+
+.topbox {
+	height: 100px;
+	border: 3px solid white;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+.leftbox {
+	width: 50%;
+	float:left;
+}
+
+.rightbox {
+	width: 50%;
+	float: right;
+}
+
+img.profile {
+	float:right;
+	width: 70px;
+	height: 70px;
+}
+
+a {
+	color:#e8e8b5;
+}
+
+a:hover {
+	color:#000;
+}
+
+.box {
+	width: 100%;
+}
+
+.fotorama {
+	width: 250px;
+	margin: 0 auto;
+}
+
+
+
+img.art {
+	width:200px;
+}
+
+img.logo {
+	height: 50px;
+	width: 50px;
+}
+
+/*FORMS*/
+
+.inputForms {
+	color:#000;
+}
+
+.btnForms {
+	color:#000;
+}
+
+
+.pane {position:absolute; left: 25%; border: 2px solid;
+    border-radius: 25px; padding: 5px; margin: 5px; border-color: #999999; background-color: #333333 }
+.header         {left:50%; text-align: center;}
+.name {width:50%;display: inline-block; float: left;}
+.description {}
+.price {text-align: right; width:50%; float: right; }
+.editdeletepane{}
+
+.flash          { color:#a1ffad; }

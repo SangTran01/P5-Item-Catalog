@@ -1,0 +1,35 @@
+{% extends 'collections.html' %}
+
+
+{% block content %}
+<h1> Edit {{editedArtwork.name}} </h1>
+
+<form action="{{url_for('editArtWork', collection_id=collection_id, artwork_id=artwork_id)}}" method = 'POST'>
+
+<p>Name of Artwork:</p>
+
+<input class="inputForms" type='text' size='30' name='name' value="{{editedArtwork.name}}" required>
+
+<p>Picture:</p>
+
+<input class="inputForms" type='text' size='30' name='picture' value="{{editedArtwork.picture}}" required>
+
+<p>Description:</p>
+
+<input class="inputForms" type='text' size='30' name='description' value="{{editedArtwork.description}}" required>
+
+<p>Price:</p>
+
+<input class="inputForms" type='text' size='30' name='price' value="{{editedArtwork.price}}" required>
+<br><br>
+<input class="btnForms" type='submit' value='Edit'>
+<button class="btnForms" onclick='goBack()'>Cancel</button>
+</form>
+
+<script>
+function goBack() {
+	window.history.back();
+}
+</script>
+
+{% endblock %}

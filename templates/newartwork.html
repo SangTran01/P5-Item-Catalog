@@ -1,0 +1,36 @@
+{% extends 'collections.html' %}
+
+
+{% block content %}
+<h1> New ArtWork </h1>
+
+<form action="{{url_for('newArtWork', collection_id=collection_id)}}" method = 'POST'>
+
+<p>Name of Artwork:</p>
+
+<input class="inputForms" type='text' size='30' name='name' required>
+
+<p>Picture:</p>
+
+<input class="inputForms" type='text' size='30' name='picture' required>
+
+<p>Description:</p>
+
+<input class="inputForms" type='text' size='30' name='description' required>
+
+<p>Price:</p>
+
+<input class="inputForms" type='text' size='30' name='price' required>
+<br><br>
+<input class="btnForms" type='submit' value='Create'>
+<button class="btnForms" onclick='goBack()'>Cancel</button>
+
+</form>
+
+<script>
+function goBack() {
+	window.history.back();
+}
+</script>
+
+{% endblock %}

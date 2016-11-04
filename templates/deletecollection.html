@@ -1,0 +1,19 @@
+{% extends 'collections.html'%}
+
+{% block content %}
+<script>
+function goBack() {
+	window.history.back();
+}
+</script>
+<h1> Are you sure you want to delete {{collection.name}}? </h1>
+
+<form actions="{{url_for('deleteCollection', collection_id=collection.id)}}" method="POST"> 
+	<input class="inputForms" type='submit', value = 'Delete'>
+	<button class="btnForms" onclick='goBack()'>Cancel</button>
+</form>
+
+
+
+
+{% endblock %}

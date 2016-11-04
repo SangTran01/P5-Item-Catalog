@@ -1,0 +1,47 @@
+{% extends "collections.html" %}
+
+{% block content %}
+
+<a class="btn btn-default" href="/">Back to Home</a>
+<br><br>
+
+{% if 'username' in login_session and collection.user.id == login_session['user_id'] %}
+<a class="btn btn-default" href="{{url_for('newArtWork', collection_id=collection.id)}}">Add New Artwork</a>
+{% endif %}
+
+<h1>{{collection.name}}</h1>
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li><strong>{{message}}</strong></li>
+		{% endfor %}
+	</ul>		
+	{%  endif %}	
+{% endwith %}
+
+{% for a in artworks %}
+
+<div>
+
+<img class="art img-rounded" src="{{a.picture}}">
+
+<p>{{a.name}}</p>
+
+<p>{{a.description}}</p>
+
+<p> {{a.price}} </p>
+
+{% if 'username' in login_session and collection.user.id == login_session['user_id'] %}
+<a href="{{url_for('editArtWork', collection_id=collection.id, artwork_id=a.id)}}">EDIT</a>
+<a href="{{url_for('deleteArtWork', collection_id=collection.id, artwork_id=a.id)}}">DELETE</a>
+{% endif %}
+
+<hr>
+</div>
+
+
+{% endfor %}
+
+{% endblock %}

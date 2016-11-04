@@ -1,0 +1,25 @@
+{% extends 'collections.html' %}
+
+
+{% block content %}
+<script>
+function goBack() {
+	window.history.back();
+}
+</script>
+
+
+<h1> Edit Collection {{collection.name}} </h1>
+
+<form action= "{{url_for('editCollection', collection_id=collection.id)}}" method = 'POST'>
+
+<p>Name:</p>
+<input class="inputForms" type = 'text' size='30' name = 'name' value = '{{collection.name}}'>
+
+<input class="btnForms" type='submit' value='Edit'>
+<button class="btnForms" onclick='goBack()'>Cancel</button>
+
+</form>
+
+
+{% endblock %}

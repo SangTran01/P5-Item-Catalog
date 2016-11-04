@@ -1,0 +1,19 @@
+{% extends 'collections.html'%}
+
+{% block content %}
+
+<h1> Are you sure you want to delete {{deletedArtwork.name}}? </h1>
+
+<form actions="{{url_for('deleteArtWork', collection_id=collection_id, artwork_id=artwork_id)}}" method="POST"> 
+	<input class="inputForms" type='submit', value = 'Delete'>
+	<button class="btnForms" onclick='goBack()'>Cancel</button>
+</form>
+
+
+<script>
+function goBack() {
+	window.history.back();
+}
+</script>
+
+{% endblock %}

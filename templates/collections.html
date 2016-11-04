@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+  <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+	<title>Welcome</title>
+</head>
+<body>
+<div class='container'>
+<nav class='navbar navbar-default'>
+    <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        {% if 'username' in login_session %}
+        <p class='navbar-text'>Signed in as <b>{{login_session['username']}}</b></p>
+        <img class="logo navbar-left img-circle" src="{{login_session['picture']}}">
+        {% else %}
+        <li><a href="/login">Log In</a></li>
+        {%  endif %}
+      </ul>
+      {% if 'username' in login_session %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/disconnect">Logout</a></li>
+      </ul>
+      {%  endif %}
+  </div><!-- /end of .container-fluid -->
+</nav>  <!--End of Navbar-->
+
+<div class = 'flash'>
+          {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+
+{%  block content %}
+<a class="btn btn-default" href="{{url_for('newCollection')}}">Add Collection</a>
+{% for c in collections %}
+<div class="collection">
+  <div class="topbox">
+    <div class="leftbox">
+      <h2 class="collectionName"><a href="/collections/{{c.id}}/">{{c.name}}</a></h2>
+      <p>Created by: <strong>{{c.user.name}}</strong></p>
+      {% if 'username' in login_session and c.user.id == login_session['user_id'] %}
+      <a href="{{url_for('editCollection', collection_id=c.id)}}">EDIT</a>
+      <a href="{{url_for('deleteCollection', collection_id=c.id)}}">DELETE</a>
+      {% endif %}
+    </div>
+    <div class="rightbox">
+      <img class="profile img-circle" src="{{c.user.picture}}">
+    </div>
+  </div>
+  <div class="fotorama" data-width="100%" data-click="false" data-swipe="false">
+  {% for a in artworks %}
+  {% if a.collection_id == c.id %}
+    <img src="{{a.picture}}" data-caption="{{a.name}} <br> {{a.price}}">
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
+</div>
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{url_for('static', filename='script.js')}}"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+</body>
+</html>
