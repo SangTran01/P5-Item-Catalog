@@ -1,4 +1,4 @@
-# project-5-fullstack
+# P5 Item Catalog
 
 ## Introduction
 
