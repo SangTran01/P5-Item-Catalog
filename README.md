@@ -9,7 +9,9 @@ This is the project 5 Item Catalog App for Udacity Fullstack Nanodegree. This ap
 - Authentication and Authorization
 - Using 3rd party authentication apps like Google plus signin and Facebook
 
+![p5login](https://cloud.githubusercontent.com/assets/15135653/20072311/ddb4d52e-a4f5-11e6-893d-69331b087932.jpg)
 
+![p5](https://cloud.githubusercontent.com/assets/15135653/20072316/e058a10c-a4f5-11e6-8cbf-9b90ed6e2aab.jpg)
 ## Requirements
 
 * python >= 2.7
