@@ -7,7 +7,7 @@ This is the project 5 Item Catalog App for Udacity Fullstack Nanodegree. This ap
 - Making a webserver
 - Using flask framework
 - Authentication and Authorization
-- Using 3rd party authentication apps
+- Using 3rd party authentication apps like Google plus signin and Facebook
 
 
 ## Requirements
